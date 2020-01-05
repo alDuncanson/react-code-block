@@ -1,0 +1,12 @@
+.Code_Block {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  margin: 0;
+  background: grey;
+  padding: 8px;
+}
