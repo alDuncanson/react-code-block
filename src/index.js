@@ -44,6 +44,8 @@ const CodeBlock = ({
   // format code block
   const formattedCode = () => {
     console.log(children.match(/\n/g))
+
+    return children
   }
 
   // return jsx
