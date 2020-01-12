@@ -2,6 +2,30 @@
   position: relative;
 }
 
+.Code_Block > .hidden-code {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: -1;
+}
+
+.Code_Block > .copied-text {
+  display: none;
+  user-select: none;
+}
+
+.Code_Block > .copied-text.show {
+  display: block;
+  position: absolute;
+  top: 13px;
+  right: 68px;
+  margin: 0;
+  background: grey;
+  padding: 8px;
+}
+
 .Code_Block > .copy-button {
   position: absolute;
   top: 13px;
@@ -9,10 +33,7 @@
   margin: 0;
   background: grey;
   padding: 8px;
-}
-
-.Code_Block > .hidden-code {
-  display: none;
+  user-select: none;
 }
 
 .Code_Block > .copy-button:hover {

@@ -22,10 +22,10 @@ const Main = () => {
       </CodeBlock>
       <CodeBlock theme='dark' language='python'>
         {`
-try:
-  print(f'{a + b}')
-except:
-  print('Something went wrong')
+          try:
+            print(f'{a + b}')
+          except:
+            print('Something went wrong')
         `}
       </CodeBlock>
     </Fragment>
