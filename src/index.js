@@ -1,41 +1,42 @@
-import React, { useEffect } from 'react'
-
-// import Prism and plugins
-import Prism from 'prismjs'
-import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
+import React, { useEffect, useState } from 'react'
 
 // import styles
 import './style.css'
-import './prism.css'
+import './theme.css'
+
+// import highlight.js
+import hljs from 'highlight.js'
 
 /**
- * 
+ * Formatted code blocks
  */
-const CodeBlock = ({ children, language }) => {
+const CodeBlock = ({
+  children,
+  theme,
+  language,
+  codeBlockStyles,
+  copyButtonStyles
+}) => {
 
-  useEffect(() => {
-    Prism.highlightAll()
-    Prism.plugins.NormalizeWhitespace.setDefaults({
-      'remove-trailing': true,
-      'remove-indent': true,
-      'left-trim': true,
-      'right-trim': true,
-      /*'break-lines': 80,
-      'indent': 2,
-      'remove-initial-line-feed': false,
-      'tabs-to-spaces': 4,
-      'spaces-to-tabs': 4*/
-    })
-  }, [])
+  // attach highlighting on page load event
+  useEffect(() => hljs.initHighlightingOnLoad())
 
-  /**
-   * return jsx
-   */
+  // copy code block
+  const copyCode = () => {
+    
+  }
+
+  // return jsx
   return (
-    <div className='Code_Block'>
-      <p className='copy-button' onClick={() => copy()}>Copy</p>
-      <pre>
-        <code className={`language-${language}`}>
+    <div className={`Code_Block ${theme === 'dark' && 'dark-theme'} ${theme === 'light' && 'light-theme'}`}>
+      <p
+        className='copy-button'
+        style={copyButtonStyles}
+        onClick={() => copyCode()}
+      >Copy</p>
+      <p className='hidden-code'>{children}</p>
+      <pre style={codeBlockStyles}>
+        <code className={`code-block ${language && `language-${language}`}`}>
           {children}
         </code>
       </pre>

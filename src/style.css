@@ -2,11 +2,28 @@
   position: relative;
 }
 
-.copy-button {
+.Code_Block > .copy-button {
   position: absolute;
   top: 13px;
   right: 13px;
   margin: 0;
   background: grey;
   padding: 8px;
+}
+
+.Code_Block > .hidden-code {
+  display: none;
+}
+
+.Code_Block > .copy-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Code_Block > pre {
+  margin: 0;
+}
+
+.Code_Block > pre > code.code-block {
+  padding: 21px;
 }

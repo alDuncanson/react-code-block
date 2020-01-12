@@ -1,8 +1,8 @@
 {
-  "name": "@alduncanson/react-address-autocomplete",
+  "name": "react-code-block",
   "version": "1.0.0",
   "private": false,
-  "description": "A simple text input for entering addresses using Google's Places API",
+  "description": "Formatted code blocks for your blog or website",
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/alDuncanson/react-address-autocomplete"
+    "url": "https://github.com/alDuncanson/react-code-block"
   },
   "keywords": [
     "react",
@@ -29,9 +29,9 @@
   "author": "Al Duncanson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alDuncanson/react-address-autocomplete/issues"
+    "url": "https://github.com/alDuncanson/react-code-block/issues"
   },
-  "homepage": "https://react-address-autocomplete.netlify.com/",
+  "homepage": "https://react-code-block.netlify.com/",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.26.0",
@@ -60,7 +60,7 @@
     "webpack-dev-server": "^2.11.2"
   },
   "dependencies": {
-    "prismjs": "^1.18.0",
+    "highlight.js": "^9.17.1",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   }
