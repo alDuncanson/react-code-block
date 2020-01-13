@@ -42,10 +42,41 @@ const CodeBlock = ({
   }
 
   // format code block
-  const formattedCode = () => {
-    console.log(children.match(/\n/g))
+  const formatCode = codeBlock => {
+    const codeBlockCopy = codeBlock
+    const codeBlockLines = codeBlockCopy.split('\n')
+    const flaggedExtraneousNewlines = codeBlockLines.map((line, index) => {
+      if (index === 0 || index === codeBlockLines.length - 1) {
+        if (line.trim().length === 0) {
+          return null
+        } else {
+          return line
+        }
+      } else {
+        if (line.trim().length === 0) {
+          return line.trim()
+        } else {
+          return line
+        }
+      }
+    })
+    const noExtraneousNewlines = flaggedExtraneousNewlines.filter(line => line !== null)
+    const leadingWhitespaceAmount = noExtraneousNewlines[0].search(/\S|$/)
+    const noLeadingWhiteSpace = noExtraneousNewlines.map((line, index) => {
+      if (index === 0) {
+        return line.trim()
+      } else {
+        if (line.trim().length === 0) {
+          return line
+        } else {
+          const currentWhitespace = line.search(/\S|$/)
+          return `${' '.repeat(currentWhitespace - leadingWhitespaceAmount)}${line.trim()}`
+        }
+      }
+    })
+    console.log(noLeadingWhiteSpace)
 
-    return children
+    return codeBlockCopy
   }
 
   // return jsx
@@ -58,7 +89,7 @@ const CodeBlock = ({
       <textarea ref={copyCodeRef} className='hidden-code' defaultValue={children} />
       <pre style={codeBlockStyles}>
         <code className={`code-block ${language && `language-${language}`}`}>
-          {formattedCode()}
+          {formatCode(children)}
         </code>
       </pre>
     </div>
